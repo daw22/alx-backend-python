@@ -1,7 +1,8 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """
 Type Anotation
 """
+
 
 def add(a: float, b: float) -> float:
     """
