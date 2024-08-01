@@ -2,7 +2,6 @@
 """
 A type-annotated function
 """
-#from Typing import List
 
 
 def sum_list(input_list: list[float]) -> float:
