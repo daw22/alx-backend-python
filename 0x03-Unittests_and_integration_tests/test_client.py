@@ -5,7 +5,8 @@ Test module for client.GithubOrgClient
 from client import GithubOrgClient
 import unittest
 from unittest.mock import patch, PropertyMock
-from parameterized import parameterized
+from parameterized import parameterized, parameterized_class
+from fixtures import TEST_PAYLOAD
 
 
 class TestGithubOrgClient(unittest.TestCase):
@@ -45,13 +46,13 @@ class TestGithubOrgClient(unittest.TestCase):
         Test that the list of repos is what you expect from the chosen payload.
         Test that the mocked property and the mocked get_json was called once.
         """
-        json_payload = [{"name": "Google"}, {"name": "Twitter"}]
+        json_payload = [{"name": "Alex"}, {"name": "Isac"}]
         mock_json.return_value = json_payload
 
         with patch('client.GithubOrgClient._public_repos_url',
                    new_callable=PropertyMock) as mock_public:
 
-            mock_public.return_value = "hello/world"
+            mock_public.return_value = "Alex/Isac"
             test_class = GithubOrgClient('test')
             result = test_class.public_repos()
 
